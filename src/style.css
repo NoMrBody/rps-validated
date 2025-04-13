@@ -1,4 +1,5 @@
 * {
+  /* to include element's padding and border in total dimensions */
   box-sizing: border-box;
 }
 
@@ -6,17 +7,17 @@ body {
   font-family: "Lexend Deca", sans-serif;
   font-weight: 400;
   background-color: #fbf8f6;
-  display: flex;
+  display: flex; /* hOw tO cENteR a dIv */
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  margin: 0;
+  min-height: 100vh; /*to make sure this element is at least as tall as the screen*/
+  margin: 0; /*disable default margin*/
 }
 
 .container {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   width: 500px;
-  border-radius: 5px;
+  border-radius: 5px; /* smoooooth operatoooor */
 }
 
 .heading {
@@ -34,12 +35,20 @@ h1 {
 .form-control {
   margin-bottom: 10px;
   padding-bottom: 20px;
-  position: relative;
+  position: relative; /*to position child elements relative to this container*/
 }
 
 .form-control label {
-  display: inline-block;
+  display: inline-block; /*making labels behave like blocks*/
   margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* to look like label */
+.technologies p {
+  font-weight: 500;
+  font-size: 13px;
 }
 
 .form-control input {
@@ -60,12 +69,12 @@ h1 {
   padding: 10px;
   font-family: inherit;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: pointer; /*to change cursor into pointing finger*/
 }
 
 .checkbox-control {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /*grid layout with 2 equal width columns*/
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
@@ -74,6 +83,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-bottom: 6px;
 }
 
 label {
@@ -96,6 +106,8 @@ input[type="checkbox"] {
   border: 1px solid #d4d4d4;
   border-radius: 10px;
   width: 50%;
+  color: #3d3d3d;
+  font-weight: 500;
 }
 
 #number-selector {
@@ -104,20 +116,20 @@ input[type="checkbox"] {
 }
 
 .form-control input:focus {
-  outline: none;
+  outline: none; /* disable focusing on input field*/
 }
 
 .error {
-  color: red;
+  color: rgb(192, 57, 43);
   font-size: 0.8rem;
   padding-top: 2px;
 }
 
 .error-border {
-  border: 1px solid red !important; /*to override other styles*/
+  border: 1px solid rgb(192, 57, 43) !important; /*to override other styles*/
 }
 
-/* * * * * * * * * * * */
+/* * * GAME STYLING BELOW * * */
 
 .game-layout {
   display: block;
@@ -127,18 +139,20 @@ input[type="checkbox"] {
   min-height: 50vh;
 }
 
+/* title of the game */
 h2 {
-  color: #070A52;
+  color: #070a52;
   text-align: center;
 }
 
+/* centering reset button */
 .rst-field {
   text-align: center;
 }
 
-#rst-button{
-  border: none;
-  background: none;
+#rst-button {
+  border: none; /* remove */
+  background: none; /*remove background*/
   color: inherit;
   font: inherit;
   padding: 0;
@@ -162,11 +176,12 @@ h2 {
 }
 
 #message-field__message {
-  color: #AF2D2D;
+  color: #af2d2d;
   font-weight: 700;
   font-size: 2rem;
 }
 
+/* align move buttons */
 .move-choices {
   display: flex;
   justify-content: space-evenly;
@@ -179,15 +194,17 @@ h2 {
   justify-content: space-evenly;
 }
 
+/* align VS between move icons */
 #vs {
   display: flex;
   text-align: center;
   align-items: center;
 }
 
+/* styling move button */
 .move-button {
   border: none;
-  background-color: #DF2E38;
+  background-color: #df2e38;
   color: #fff;
   border-radius: 6px;
   font-size: 1.5rem;
@@ -204,10 +221,7 @@ h2 {
   color: #247527;
 }
 
-.history__lst{
-  overflow-y: scroll;
+.history__lst {
+  overflow-y: scroll; /* adding scroll bar when list items are too much relative to height */
   max-height: 100px;
 }
-
-
-
