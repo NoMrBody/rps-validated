@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- group form part -->
+    <div class="container" id="container">
+      <div class="heading">
+        <h1>Group Form</h1>
+      </div>
+
+      <form class="form" id="form" novalidate>
+        <div class="first-last">
+          <div class="form-control">
+            <label for="firstName">
+              First Name
+              <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              id="firstName"
+              required
+            />
+            <span id="firstNameError" class="error"> </span>
+          </div>
+          <div class="form-control">
+            <label for="lastName">
+              Last Name
+              <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              id="lastName"
+              required
+            />
+            <span id="lastNameError" class="error"> </span>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label for="email">
+            Email
+            <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="user@example.com"
+            id="email"
+            required
+          />
+          <span id="emailError" class="error"> </span>
+        </div>
+
+        <div class="form-control">
+          <label for="password">
+            Password
+            <span class="required">*</span>
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            id="password"
+            required
+          />
+          <span id="passwordError" class="error"> </span>
+        </div>
+
+        <div class="form-control" id="number-selector">
+          <label for="teamSize">
+            Team size
+            <span class="required">*</span>
+          </label>
+          <select class="team-size" id="teamSize" name="teamSize" required>
+            <option value="">-- Number of Members --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <span id="selectorError" class="error"></span>
+        </div>
+
+        <div class="technologies">
+          <p>Technologies</p>
+          <div class="checkbox-control">
+            <div class="checklist-column">
+              <label for="html"
+                ><input
+                  type="checkbox"
+                  id="html"
+                  name="technologies"
+                  value="html"
+                />HTML</label
+              >
+              <label for="css"
+                ><input
+                  type="checkbox"
+                  id="css"
+                  name="technologies"
+                  value="css"
+                />CSS</label
+              >
+              <label for="js"
+                ><input
+                  type="checkbox"
+                  id="js"
+                  name="technologies"
+                  value="js"
+                />Javascript</label
+              >
+            </div>
+
+            <div class="checklist-column">
+              <label for="react"
+                ><input
+                  type="checkbox"
+                  id="react"
+                  name="technologies"
+                  value="react"
+                />React</label
+              >
+              <label for="figma"
+                ><input
+                  type="checkbox"
+                  id="figma"
+                  name="technologies"
+                  value="figma"
+                />Figma</label
+              >
+              <label for="github"
+                ><input
+                  type="checkbox"
+                  id="github"
+                  name="technologies"
+                  value="github"
+                />GitHub</label
+              >
+            </div>
+            <span id="checkboxError" class="error"></span>
+          </div>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- game part -->
+    <div id="game" style="display: none" class="game-layout">
+      <div>
+        <h2>Rock Paper Scissors</h2>
+      </div>
+
+      <div class="rst-field">
+        <button type="reset" id="rst-button">RESET THE TOUR</button>
+      </div>
+
+      <!-- stores the player and computer scores -->
+      <div class="game__score-field">
+        <div class="player-score" id="player-score">
+          <p>PLAYER SCORE: 0</p>
+        </div>
+
+        <div class="computer-score" id="computer-score">
+          <p>COMPUTER SCORE: 0</p>
+        </div>
+      </div>
+
+      <!-- messages if win or lost -->
+      <div class="message-field" style="display: none;">
+        <p id="message-field__message"></p>
+      </div>
+
+      <!-- this is hidden initially -->
+      <div class="moves-preview" style="display: none">
+        <div class="moves-preview__p1"></div>
+        <div id="vs"><p>VS</p></div>
+        <div class="moves-preview__pc"></div>
+      </div>
+
+      <div class="question">
+        <p>Choose your move, rock paper or scissors?</p>
+      </div>
+
+      <div class="move-choices">
+        <button class="move-button" id="rock-btn">ROCK</button>
+        <button class="move-button" id="paper-btn">PAPER</button>
+        <button class="move-button" id="scissors-btn">SCISSORS</button>
+      </div>
+
+      <div class="history">
+        <h2>Game History</h2>
+        <div class="history__lst">
+           <ul class="history__lst-content" id="history__lst-content">
+            <!-- here goes list items (game history actually) -->
+           </ul>
+        </div>
+      </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
