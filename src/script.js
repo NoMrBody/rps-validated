@@ -59,13 +59,14 @@ function validateEmail() {
   const email = document.getElementById("email").value.trim();
   const errorField = document.getElementById("emailError");
   const inputField = document.getElementById("email");
-  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // regular experssion to validate email
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // regular experssion to validate email
 
   if (email === "") {
     errorField.textContent = "Email is required";
     inputField.classList.add("error-border");
     return false;
   } else if (!pattern.test(email)) {
+    // email not empty but pattern didn't match
     errorField.textContent = "Invalid email format";
     inputField.classList.add("error-border");
     return false;
@@ -116,6 +117,7 @@ function validateCheckboxes() {
   const errorField = document.getElementById("checkboxError");
 
   if (selected.length < 3) {
+    // less than 3 are selected
     errorField.textContent = "Select at least 3 technologies";
     return false;
   }
@@ -123,18 +125,18 @@ function validateCheckboxes() {
   return true;
 }
 
+// initial values of variables
 let playerScore = 0;
 let computerScore = 0;
-let roundNumber = 0;
+let roundNumber = 0; // tracking rounds for history
 
 function launchGame() {
-  document.getElementById("game").style.display = "block";
+  document.getElementById("game").style.display = "block"; // make game 'appear'
   getInitialState();
 }
 
-
 function getInitialState() {
-  // setting initial scores
+  // setting initial scores as 0
   document.getElementById(
     "player-score"
   ).innerHTML = `<p>PLAYER SCORE: ${playerScore}</p>`;
@@ -143,6 +145,7 @@ function getInitialState() {
   ).innerHTML = `<p>COMPUTER SCORE: ${computerScore}</p>`;
 }
 
+// start listening button actions
 document
   .getElementById("rock-btn")
   .addEventListener("click", () => playRound("rock"));
@@ -153,12 +156,12 @@ document
   .getElementById("scissors-btn")
   .addEventListener("click", () => playRound("scissors"));
 
-  document.getElementById("rst-button").addEventListener("click", resetGame); //
-
+document.getElementById("rst-button").addEventListener("click", resetGame); // reset progess after clicking reset button
 
 function playRound(playerMove) {
   const choices = ["rock", "paper", "scissors"];
-  const computerMove = choices[Math.floor(Math.random() * 3)];
+  // 0 <= Math.random() < 1
+  const computerMove = choices[Math.floor(Math.random() * 3)];  // index is either 0, 1 or 2 due to floor method
 
   // Show 'move-preview'
   const movePreview = document.querySelector(".moves-preview");
@@ -167,12 +170,12 @@ function playRound(playerMove) {
   messagePreview.style.display = "block";
   document.querySelector(
     ".moves-preview__p1"
-  ).innerHTML = `<img src="resources/${playerMove}.png" alt="${playerMove}" height="90" title="${playerMove}">`;
+  ).innerHTML = `<img src="resources/${playerMove}.png" alt="${playerMove}" height="90" title="${playerMove}">`;  // make player move icon appear
   document.querySelector(
     ".moves-preview__pc"
-  ).innerHTML = `<img src="resources/${computerMove}.png" alt="${computerMove}" height="90" title="${computerMove}">`;
+  ).innerHTML = `<img src="resources/${computerMove}.png" alt="${computerMove}" height="90" title="${computerMove}">`;  // make computer move icon appear
 
-  const messageEl = document.getElementById("message-field__message");
+  const messageEl = document.getElementById("message-field__message");  // variable for message
   let result = "";
 
   if (playerMove === computerMove) {
@@ -200,10 +203,11 @@ function playRound(playerMove) {
 
   roundNumber++;
 
-  addToHistory(playerMove, computerMove, result);
+  addToHistory(playerMove, computerMove, result); // adding game result to the history
 }
 
 function resetGame() {
+  // reset variables to initial state
   playerScore = 0;
   computerScore = 0;
   roundNumber = 0;
@@ -216,20 +220,18 @@ function resetGame() {
     "computer-score"
   ).innerHTML = `<p>COMPUTER SCORE: ${computerScore}</p>`;
 
-  document.querySelector(".moves-preview").style.display = "none";
+  document.querySelector(".moves-preview").style.display = "none";  // to disappear move icons
 
-  document.querySelector(".message-field").style.display = "none";
+  document.querySelector(".message-field").style.display = "none";  // to disappear previous result message
 
-  // document.querySelector(".message-field__message").textContent = "";
-
+  // clean-up game records
   const historyList = document.getElementById("history__lst-content");
   historyList.innerHTML = "";
 }
 
 function addToHistory(playerMove, computerMove, result) {
   const historyDiv = document.querySelector(".history__lst-content");
-  const entry = document.createElement("li");
+  const entry = document.createElement("li");  // creating list item inside unordered list
   entry.textContent = `Round ${roundNumber}: Player chose - ${playerMove}, computer chose - ${computerMove} -> ${result}`;
-  historyDiv.prepend(entry);
+  historyDiv.prepend(entry);  // to stack game records
 }
-
