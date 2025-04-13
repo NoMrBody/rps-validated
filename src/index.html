@@ -20,7 +20,9 @@
         <h1>Group Form</h1>
       </div>
 
+      <!-- novalidate prevents default browser validation -->
       <form class="form" id="form" novalidate>
+        <!-- wrapping first and last name input fields for style manipulation -->
         <div class="first-last">
           <div class="form-control">
             <label for="firstName">
@@ -32,10 +34,10 @@
               name="firstName"
               placeholder="First Name"
               id="firstName"
-              required
             />
             <span id="firstNameError" class="error"> </span>
           </div>
+
           <div class="form-control">
             <label for="lastName">
               Last Name
@@ -46,7 +48,6 @@
               name="lastName"
               placeholder="Last Name"
               id="lastName"
-              required
             />
             <span id="lastNameError" class="error"> </span>
           </div>
@@ -62,7 +63,6 @@
             name="email"
             placeholder="user@example.com"
             id="email"
-            required
           />
           <span id="emailError" class="error"> </span>
         </div>
@@ -77,17 +77,17 @@
             name="password"
             placeholder="Password"
             id="password"
-            required
           />
           <span id="passwordError" class="error"> </span>
         </div>
 
+        <!-- selector for number of team members -->
         <div class="form-control" id="number-selector">
           <label for="teamSize">
             Team size
             <span class="required">*</span>
           </label>
-          <select class="team-size" id="teamSize" name="teamSize" required>
+          <select class="team-size" id="teamSize" name="teamSize">
             <option value="">-- Number of Members --</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -96,9 +96,11 @@
           <span id="selectorError" class="error"></span>
         </div>
 
+        <!-- groups of checkboxes -->
         <div class="technologies">
           <p>Technologies</p>
           <div class="checkbox-control">
+            <!-- left column of checkboxes -->
             <div class="checklist-column">
               <label for="html"
                 ><input
@@ -126,6 +128,7 @@
               >
             </div>
 
+            <!-- right column of checkboxes -->
             <div class="checklist-column">
               <label for="react"
                 ><input
@@ -160,12 +163,14 @@
       </form>
     </div>
 
-    <!-- game part -->
+    <!-- GAME PART -->
+     <!-- before successful validation game layout is hidden -->
     <div id="game" style="display: none" class="game-layout">
       <div>
         <h2>Rock Paper Scissors</h2>
       </div>
 
+      <!-- resets progress of the game and clears history -->
       <div class="rst-field">
         <button type="reset" id="rst-button">RESET THE TOUR</button>
       </div>
@@ -182,11 +187,12 @@
       </div>
 
       <!-- messages if win or lost -->
-      <div class="message-field" style="display: none;">
+      <div class="message-field" style="display: none">
         <p id="message-field__message"></p>
       </div>
 
       <!-- this is hidden initially -->
+       <!-- presenting player and computer moves after first one -->
       <div class="moves-preview" style="display: none">
         <div class="moves-preview__p1"></div>
         <div id="vs"><p>VS</p></div>
@@ -197,22 +203,22 @@
         <p>Choose your move, rock paper or scissors?</p>
       </div>
 
+      <!-- buttons for player moves -->
       <div class="move-choices">
         <button class="move-button" id="rock-btn">ROCK</button>
         <button class="move-button" id="paper-btn">PAPER</button>
         <button class="move-button" id="scissors-btn">SCISSORS</button>
       </div>
 
+      <!-- space where recent results are stored -->
       <div class="history">
         <h2>Game History</h2>
         <div class="history__lst">
-           <ul class="history__lst-content" id="history__lst-content">
+          <ul class="history__lst-content" id="history__lst-content">
             <!-- here goes list items (game history actually) -->
-           </ul>
+          </ul>
         </div>
       </div>
-
-
     </div>
 
     <script src="script.js"></script>
